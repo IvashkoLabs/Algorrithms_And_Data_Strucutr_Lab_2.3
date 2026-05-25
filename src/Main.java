@@ -60,13 +60,13 @@ enum Event {
     private static final Scanner scanner = new Scanner(System.in);
     public static void main(String[] args)
     {
-        State task1Type = determineCombinatoricsType();
-        System.out.println("\nTask type" + task1Type);
-        solveTask1(task1Type);
+        //State task1Type = determineCombinatoricsType();
+        //System.out.println("\nTask type" + task1Type);
+        solveTask1();
 
-        State task2Type = determineCombinatoricsType();
-        System.out.println("\nTask type " + task2Type);
-        solveTask2(task2Type);
+        //State task2Type = determineCombinatoricsType();
+        //System.out.println("\nTask type " + task2Type);
+        solveTask2();
         scanner.close();
     }
 static boolean AskBool(String question)
@@ -104,14 +104,16 @@ static boolean AskBool(String question)
                 return State.CombinationsWithReps;
 
         }
+
     }
-    static void solveTask1(State type)
+    static void solveTask1()
     {
-        if (type != State.SwapNoRep) {
+
             System.out.println("\n 14 студентів розсіляють у 14 унікальних кімнат.");
             System.out.println("Студенти не можуть повторюватись, порядок заселення важливий, а n = k. має бути: SwapNoRep.");
-        }
 
+        State type= determineCombinatoricsType();
+                System.out.println("\nTask type" + type);
         System.out.print("\nAmount of elemetns n ( 14): ");
         int n = Integer.parseInt(scanner.nextLine().trim());
         int k = 0;
@@ -185,13 +187,12 @@ static boolean AskBool(String question)
         generateLexicographicalPermutations(demoN, FILE_NAME);
     }
 
-    static void solveTask2(State type)
+    static void solveTask2()
     {
-        if (type != State.PlaceWithReps)
-        {
             System.out.println("\n шифр з букв та цифр, що можуть повторюватися.");
             System.out.println("Символи можуть дублюватися, порядок важливий, елементів в алфавіті більше ніж позицій. Очікувався: PlaceWithReps.");
-        }
+        State type= determineCombinatoricsType();
+        System.out.println("\nTask type" + type);
 
         System.out.print("n1 size (11 for f-p ): ");
         int n1 = Integer.parseInt(scanner.nextLine().trim());
